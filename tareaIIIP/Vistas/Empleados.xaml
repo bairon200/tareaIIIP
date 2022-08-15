@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:deg="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:nodo="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             nodo:Ignorable="deg"
+             xmlns:local="clr-namespace:tareaIIIP.Vistas"
+             x:Class="tareaIIIP.Vistas.Empleados">
+    
+    
+    <StackLayout>
+        <Button Text="ObtenerLista"
+                Command="{Binding DetallesCommand}"
+                CommandParameter="{x:Type local:Empleado}" />
+        <CollectionView ItemsSource="{Binding GetListAlumnos}"
+                        SelectedItem="{Binding GetAlumno}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="lstImage"
+                               Source="{Binding icono}"
+                               Grid.ColumnSpan="2" />
+                        <Label Text="{Binding nombres}"
+                               Grid.Row="1"
+                               Grid.Column="0" />
+                        <Label Text="{Binding apellidos}"
+                               Grid.Row="1"
+                               Grid.Column="1" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

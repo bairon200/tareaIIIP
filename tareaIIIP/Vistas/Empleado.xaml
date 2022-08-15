@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:tareaIIIP.VModels"
+             x:Class="tareaIIIP.Vistas.Empleado">
+    <ContentPage.BindingContext>
+        <local:VMempleado />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Frame HorizontalOptions="Center"
+                   BackgroundColor="#C5AAAA"
+                   HeightRequest="200"
+                   WidthRequest="200"
+                   CornerRadius="10"
+                   Grid.ColumnSpan="2">
+                <Image x:Name="imgEmpleado"
+                       Source="{Binding icono}" />
+            </Frame>
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Nombres :"
+                   VerticalOptions="Center" />
+            <Entry Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding nombres}" />
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Apellidos :"
+                   VerticalOptions="Center" />
+            <Entry Grid.Row="2"
+                   Grid.Column="1"
+                   Text="{Binding apellidos}" />
+            <Label Grid.Row="3"
+                   Grid.Column="0"
+                   Text="Edad :"
+                   VerticalOptions="Center" />
+            <Entry Grid.Row="3"
+                   Grid.Column="1"
+                   Text="{Binding edad}" />
+            <Label Grid.Row="4"
+                   Grid.Column="0"
+                   Text="Dirección :"
+                   VerticalOptions="Center" />
+            <Entry Grid.Row="4"
+                   Grid.Column="1"
+                   Text="{Binding direccion}" />
+            <Label Grid.Row="5"
+                   Grid.Column="0"
+                   Text="Puesto :"
+                   VerticalOptions="Center" />
+            <Entry Grid.Row="5"
+                   Grid.Column="1"
+                   Text="{Binding puesto}" />
+            <Button Grid.Row="6"
+                    Grid.Column="0"
+                    Text="Agregar"
+                    Command="{Binding AddCommand}"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            <Button Grid.Row="6"
+                    Grid.Column="1"
+                    Text="Limpiar"
+                    Command="{Binding CleanCommand}"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            <Button Grid.Row="6"
+                    Grid.Column="2"
+                    Text="foto"
+                    Command="{Binding fotoCommand}"
+                    WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
