@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using tareaIIIP.Modelo;
 using Xamarin.Forms;
 
 namespace tareaIIIP.VModels
@@ -37,9 +38,41 @@ namespace tareaIIIP.VModels
             DetallesCommand = new Command<Type>(async (pageType) => await LlenarDetalle(pageType));
 
             GetListAlumnos = new ObservableCollection<Modelo.Mempleado>();
+            mostrarUsuarios();
 
-           
+
         }
+
+        public VMlistaEmple()
+        {
+            
+            GetListAlumnos = new ObservableCollection<Modelo.Mempleado>();
+            mostrarUsuarios();
+
+
+        }
+
+        private async Task mostrarUsuarios()
+        {
+            VMuser funcion = new VMuser();
+            var dt1 = await funcion.mostrar_usuarios();
+       
+            foreach (var t in dt1)
+            {
+                GetListAlumnos.Add(new Modelo.Mempleado()
+                {
+                    id = t.id,
+                    nombres = t.nombres,
+                    apellidos = t.apellidos,
+                    edad = t.edad,
+                    puesto = t.puesto,
+                    direccion = t.direccion,
+                    icono = t.icono,    
+                    
+                }) ;
+            }
+        }
+            
 
         async Task LlenarDetalle(Type pageType)
         {

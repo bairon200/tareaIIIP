@@ -114,6 +114,8 @@ namespace tareaIIIP.VModels
            
         }
 
+       
+
         public async void foto2()
         {
 
@@ -175,13 +177,17 @@ namespace tareaIIIP.VModels
 
         }
 
+     
 
         public VMempleado()
         {
+
             CleanCommand = new Command(() => limpiar());
             AddCommand = new Command(() => AddAlumn());
             fotoCommand = new Command(() => foto());
+
         }
+
 
     }
 }

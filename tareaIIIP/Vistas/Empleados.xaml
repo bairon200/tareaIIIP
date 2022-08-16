@@ -13,6 +13,7 @@
                 Command="{Binding DetallesCommand}"
                 CommandParameter="{x:Type local:Empleado}" />
         <CollectionView ItemsSource="{Binding GetListAlumnos}"
+                        x:Name="cole"
                         SelectedItem="{Binding GetAlumno}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -27,6 +28,8 @@
                         </Grid.ColumnDefinitions>
                         <Image x:Name="lstImage"
                                Source="{Binding icono}"
+                               HeightRequest="200"
+                               WidthRequest="200"
                                Grid.ColumnSpan="2" />
                         <Label Text="{Binding nombres}"
                                Grid.Row="1"

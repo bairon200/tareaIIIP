@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using tareaIIIP.VModels;
 
 namespace tareaIIIP.Vistas
 {
@@ -15,6 +16,18 @@ namespace tareaIIIP.Vistas
         public Empleados()
         {
             InitializeComponent();
+            mostrar();
+
+
         }
+
+        private async Task mostrar()
+        {
+            VMuser funcion = new VMuser();
+
+            cole.ItemsSource = await funcion.mostrar_usuarios();
+        }
+        
+
     }
 }
